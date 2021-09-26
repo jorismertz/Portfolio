@@ -5,3 +5,4 @@
 - [ ] Basic HTML en CSS afmaken
 - [ ] Favicon groter maken
 - [ ] Scroll event knoppen
+- [ ] About me tekst/foto maken
