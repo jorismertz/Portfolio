@@ -1,0 +1,39 @@
+@media only screen and (max-width: 1000px) {
+  .backgroundwrapper {
+    display: block;
+    height: 400px;
+  }
+  li {
+    display: none;
+  }
+  .container {
+    width: calc( 100% -  40px);
+    position: relative;
+    left: 20px;
+    top: 0px;
+  }
+  .media_qoute {
+    display: block;
+    font-family: canvas;
+  }
+  .showcase_wrapper, .under_showcase {
+    display: none;
+  }
+  .wrapper1 {
+    height: auto;
+  }
+  .content .content_block {
+    float: none;
+    width: 80%;
+    margin: 0;
+  }
+  .content {
+    width: 80%;
+    transform: none;
+    max-width: none;
+    padding: 0;
+    text-align: center;
+    left: 20%;
+    position: relative;
+  }
+}

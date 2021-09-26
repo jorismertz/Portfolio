@@ -280,3 +280,7 @@ iframe {
   width: calc(100vw - 200px) !important;
   max-width: 1000px !important;
 }
+
+.media_qoute {
+  display: none;
+}
