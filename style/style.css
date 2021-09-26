@@ -235,6 +235,12 @@ li ul span:hover {
 #pixlee_container {
   width: calc(100vw - 200px);
   left: 100px;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+#event_container {
+  cursor: pointer;
 }
 
 iframe {
