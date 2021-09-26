@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="script/jquery-3.6.0.min.js"></script>
     <title>Joris Mertz</title>
 </head>
 <body>
@@ -15,9 +16,9 @@
 
     <div class="wrapper1">
         <li class="navbar">
-            <ul><a href="">CONTACT</a></ul>
-            <ul><a href="">ABOUT</a></ul>
-            <ul><a href="">SERVICES</a></ul>
+            <ul><span id="services" href="">SERVICES</span></ul>
+            <ul><span id="contact" href="">CONTACT</span></ul>
+            <ul><span id="about" href="">ABOUT</span></ul>
           </li>
         <div class="container">
             <h1 class="title">Joris Mertz</h1>
@@ -54,18 +55,32 @@
 
     <!-- Wrapper 3 starting here -->
 
-    <div class="wrapper3">
+    <div id="aboutme_scroll" class="wrapper3">
         <br><br><br>
         <div class="line line_narrow"></div><div class="line line_narrow"></div>
         <h1 class='aboutme'>About me</h1>
         <div class="content">
             <div class="content_block">
-
+                <img src="assets/foto_joris.png" alt="">
             </div>
             <div class="content_block">
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae aliquet augue. Proin id interdum lacus, a fermentum nulla. Mauris vehicula ligula ligula, sed facilisis ipsum fringilla et. Cras at diam ut massa placerat mollis. Phasellus rutrum ultricies diam. Phasellus ac magna sed sapien vestibulum vestibulum ac ac sapien. Etiam at dapibus orci, suscipit viverra ipsum. Maecenas libero nibh, imperdiet sit amet pretium quis, feugiat nec mi. Praesent porttitor ornare nisl, facilisis tempor ipsum volutpat in. Curabitur condimentum tortor nibh, sit amet venenatis ipsum venenatis a. Etiam quis nulla tortor. Cras fringilla eu orci sed rhoncus. Fusce interdum tortor nec porta faucibus. Mauris mollis interdum eros. Praesent ut finibus est. Vestibulum a sagittis nisl. Quisque ac pulvinar lorem. Pellentesque faucibus, purus a auctor bibendum, elit ante pretium est, vel scelerisque risus nunc quis risus. Nam lacus nisi, sagittis sed posuere euismod, aliquet nec nibh. Proin arcu justo, ultrices in luctus sit amet, </p>
             </div>
+            <div class="clear"></div>
         </div>
+    </div>
+
+    <!-- Wrapper 4 starting here -->
+
+    <div class="wrapper4">
+        <br><br><br>
+        <div class="line line_narrow"></div><div class="line line_narrow"></div>
+        <h1 class='mywork'>My work</h1>
+        <center>
+            <div id="pixlee_container"></div>
+            <script type="text/javascript">window.PixleeAsyncInit = function() {Pixlee.init({apiKey:'VnT4thbJtnTjCIFVQchu'});Pixlee.addSimpleWidget({widgetId:'34422'});};</script>
+            <script src="https://instafeed.assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"></script>
+        </center>
     </div>
 
     <!-- Background wrapper starting here -->
@@ -74,5 +89,6 @@
         <img src="assets/Background.jpg" class="background">
         <div class="overlay"></div>
     </div>
+    <script src="script/scroll_events.js"></script>
 </body>
 </html>

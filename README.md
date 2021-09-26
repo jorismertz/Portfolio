@@ -4,3 +4,4 @@
 - [ ] Portfolio carrousel
 - [ ] Basic HTML en CSS afmaken
 - [ ] Favicon groter maken
+- [ ] Scroll event knoppen

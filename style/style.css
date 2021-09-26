@@ -76,12 +76,11 @@ li ul {
   margin-left: 20px;
 }
 
-li ul a {
-  text-decoration: none;
+li ul span {
   color: black;
 }
 
-li ul a:hover {
+li ul span:hover {
   text-decoration: underline;
 }
 
@@ -162,6 +161,8 @@ li ul a:hover {
 
 .wrapper2 .under_showcase {
   position: absolute;
+  width: 100%;
+  overflow: hidden;
 }
 
 .wrapper2 .under_showcase .left_showcase {
@@ -177,7 +178,7 @@ li ul a:hover {
   top: -350px;
 }
 
-.wrapper3 .aboutme {
+.aboutme, .mywork {
   font-family: canvas;
   font-size: 62px;
   font-weight: normal;
@@ -204,4 +205,39 @@ li ul a:hover {
   left: 50%;
   transform: translateX(-50%);
   top: 100px;
+}
+
+.content {
+  width: calc(100vw - 200px);
+  max-width: 1000px;
+  padding: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+.content .content_block {
+  position: relative;
+  width: calc(50% - 20px);
+  margin: 10px;
+  float: left;
+}
+
+.content .content_block img {
+  width: 100%;
+}
+
+.content .content_block p {
+  margin-block-start: 0;
+  font-family: canvas;
+}
+
+#pixlee_container {
+  width: calc(100vw - 200px);
+  left: 100px;
+}
+
+iframe {
+  width: calc(100vw - 200px) !important;
+  max-width: 1000px !important;
 }
