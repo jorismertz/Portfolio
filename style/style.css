@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @font-face {
   font-family: Canvas;
   src: url(../assets/font/Regular.otf);
@@ -283,4 +284,44 @@ iframe {
 
 .media_qoute {
   display: none;
+}
+
+.topnav {
+  overflow: hidden;
+  display: none;
+  background-color: black;
+  font-family: roboto;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav #myLinks a {
+  color: white !important;
+}
+
+.topnav a {
+  color: #FFB500;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: white;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.active {
+  background-color: none;
+  color: white;
+  width: 50px;
+  height: 50px;
 }
