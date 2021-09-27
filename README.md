@@ -1,8 +1,8 @@
 # Ideeën voor website
-- [ ] Automatish instagram profiel foto fetchen en gebruiken bij about me sectie
-- [ ] Automatisch regio zoeken en taal aanpassen
+- [x] Automatish instagram profiel foto fetchen en gebruiken bij about me sectie
+- [x] Automatisch regio zoeken en taal aanpassen
 - [ ] Portfolio carrousel
 - [ ] Basic HTML en CSS afmaken
 - [x] Favicon groter maken
 - [ ] Scroll event knoppen
-- [ ] About me tekst/foto maken
+- [x] About me tekst/foto maken
