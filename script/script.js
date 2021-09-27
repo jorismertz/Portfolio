@@ -1,5 +1,7 @@
 var language = navigator.language;
 
+/* Functions  */
+
 function setLanguage(lang) {
     let settext = function (name) {
         $('#abt_text').html(`<zero-md src="about/` + name + `.md"></zero-md>`);
@@ -8,19 +10,6 @@ function setLanguage(lang) {
         settext(lang);
     } else {
         settext('en');
-    }
-}
-
-$(document).ready(function () {
-    setLanguage(language);
-});
-
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
     }
 }
 
@@ -35,3 +24,9 @@ function menu() {
         $('.topnav').css('border-radius', '0');
     }
 }
+
+/* Execute when page is loaded in */
+
+$(document).ready(function () {
+    setLanguage(language);
+});
