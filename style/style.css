@@ -186,6 +186,7 @@ li ul span:hover {
 .wrapper1 {
   width: 100%;
   height: calc(100vh + 200px);
+  overflow: hidden;
 }
 
 .wrapper2 {
@@ -266,15 +267,9 @@ li ul span:hover {
   font-family: canvas;
 }
 
-#pixlee_container {
-  width: calc(100vw - 200px);
-  left: 100px;
+.snapwidget-widget {
+  cursor: pointer;
   pointer-events: none;
-  cursor: pointer;
-}
-
-#event_container {
-  cursor: pointer;
 }
 
 iframe {
@@ -289,8 +284,7 @@ iframe {
 .topnav {
   overflow: hidden;
   display: none;
-  background-color: black;
-  font-family: roboto;
+  font-family: filsonx;
 }
 
 .topnav #myLinks {
@@ -299,18 +293,19 @@ iframe {
 
 .topnav #myLinks a {
   color: white !important;
+  background: #000;
+  font-size: 16px;
 }
 
 .topnav a {
-  color: #FFB500;
+  color: #000;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 24px;
   display: block;
 }
 
 .topnav a.icon {
-  background: white;
   display: block;
   position: absolute;
   right: 0;
@@ -324,4 +319,28 @@ iframe {
   color: white;
   width: 50px;
   height: 50px;
+}
+
+.work_container {
+  width: calc(100% - 200px);
+  position: relative;
+  left: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+}
+
+.work_container .work_item {
+  max-width: 100%;
+  float: left;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.work_container .work_item img {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 120%;
+  max-height: 120%;
 }

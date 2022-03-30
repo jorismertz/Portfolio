@@ -1,7 +1,16 @@
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 950px) {
   .backgroundwrapper {
     display: block;
-    height: 70vh;
+    height: 100%;
+  }
+  .title {
+    font-size: 2em !important;
+    position: relative;
+    top: 25px;
+  }
+  .line, .vol {
+    position: relative;
+    top: 20px;
   }
   li {
     display: none;
@@ -15,12 +24,16 @@
   .media_qoute {
     display: block;
     font-family: canvas;
+    top: 70px;
+    position: absolute;
+    font-size: 11rem;
+    width: 1400px;
   }
   .showcase_wrapper, .under_showcase {
     display: none;
   }
   .wrapper1 {
-    height: 70vh;
+    height: 100vh;
     position: relative;
     margin-top: -25px;
   }

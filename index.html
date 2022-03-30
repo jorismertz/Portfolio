@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/mobile.css">
+    <link rel="stylesheet" href="style/portfolio_viewer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/font/filson/stylesheet.css">
     <link rel="icon" href="favicon.png" type="image/png" />
     <script src="script/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
@@ -17,7 +19,6 @@
 <body>
 
     <!-- Wrapper 1 starting here -->
-
     <div class="wrapper1">
         <li class="navbar">
             <ul><span id="services" href="">SERVICES</span></ul>
@@ -34,12 +35,13 @@
             <h1 class="media_qoute">
                 Simple and elegant design
             </h1>
+            <div class="mobileChin"></div>
             <div class="showcase_wrapper">
                 <h1 class="qoute">
                     Simple <br> &nbsp;&nbsp;and elegant <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
                 </h1>
-                <a class='discover' href="">― DISCOVER</a>
-                <div class="showcase"><img src="assets/portfolio/ballers.png"/></div>
+                <p class='discover' onclick="discoverButton()">― DISCOVER</p>
+                <div class="showcase"><img src="./assets/portfolio/ballers.png"/></div>
             </div>
         </div>
     </div>
@@ -49,14 +51,14 @@
     <div class="wrapper2">
         <div class="under_showcase">
             <div class="left_showcase">
-                <img src="assets/portfolio/Bloem.png" alt="">
+                <img src="./assets/portfolio/Bloem.png" alt="">
             </div>
             <div class="right_showcase">
-                <img src="assets/portfolio/youtubebanner.png" alt="">
+                <img src="./assets/portfolio/youtubebanner.png" alt="">
             </div>
         </div>
         <div class="round_logo">
-            <img src="assets/Logo.png" alt="Joris Mertz Logo">
+            <img src="./assets/Logo.png" alt="Joris Mertz Logo">
         </div>
     </div>
 
@@ -68,7 +70,7 @@
         <h1 class='aboutme'>About me</h1>
         <div class="content">
             <div class="content_block">
-                <img src="assets/foto_joris.jpeg" alt="">
+                <img src="./assets/foto_joris.jpeg" alt="">
             </div>
             <div id="abt_text" class="content_block">
                 
@@ -83,13 +85,9 @@
         <br><br><br>
         <div class="line line_narrow"></div><div class="line line_narrow"></div>
         <h1 class='mywork'>My work</h1>
-        <center>
-            <div id="event_container">
-                <div id="pixlee_container"></div>
-            </div>
-            <script type="text/javascript">window.PixleeAsyncInit = function() {Pixlee.init({apiKey:'VnT4thbJtnTjCIFVQchu'});Pixlee.addSimpleWidget({widgetId:'34422'});};</script>
-            <script src="https://instafeed.assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"></script>
-        </center>
+        <div class="work_container">
+            
+        </div>
     </div>
 
     <!-- Hamburger menu for mobile -->
@@ -106,13 +104,36 @@
         </a>
       </div>
 
+    <!-- Portfolio viewer popup -->
+
+      <div class="portfolio_viewer">
+          <div class="bg"></div>
+          <div class="portfolio_content">
+            <i class="fa fa-times exit_button" aria-hidden="true"></i>
+                <div class="section">
+                    <h1 class="portfolio_header"></h1>
+                    <p class="portfolio_description"></p>
+                    <a class="portfolio_link" target="_blank" href="">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span>Bekijk op Instagram</span>
+                    </a>
+                </div>
+                <div class="section">
+                    <div class="portfolio_images"></div>
+                </div>
+          </div>
+      </div>
+
     <!-- Background wrapper starting here -->
 
     <div class="backgroundwrapper">
-        <img src="assets/Background.jpg" class="background">
+        <img src="./assets/bg.png" class="background">
         <div class="overlay"></div>
     </div>
+    <script type="text/javascript" src="portfolio_content.js"></script>
     <script src="script/scroll_events.js"></script>
-    <script src="script/click_events.js"></script>
+    <script src="script/portfolio.js"></script>
+    <script src="script/mobile.js"></script>
 </body>
 </html>
+
