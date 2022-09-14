@@ -6,7 +6,7 @@ import getUserLocale from "get-user-locale";
 
 import Navbar from "../components/Navbar";
 
-import { localeContent, Content } from "../content/nl";
+import { localeContent, Content } from "../content/content";
 
 import Hero from "../components/content/Hero";
 import Showcase from "../components/content/Showcase";
@@ -19,7 +19,7 @@ function App(): ReactElement {
 
   return (
     <>
-      <Hero />
+      <Hero content={content.calltoaction} />
       <Showcase />
       <AboutMe />
       <MyWork />

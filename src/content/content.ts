@@ -1,12 +1,14 @@
+interface AboutMe {
+  title: string;
+  heading: string;
+  content: string;
+}
+
 export type Content = {
   motto: string;
   navbar: string[];
   calltoaction: string;
-  aboutme: {
-    title: string;
-    heading: string;
-    content: string;
-  }
+  aboutme: AboutMe;
 }
 
 const getAge = (birthdate: string): number => {

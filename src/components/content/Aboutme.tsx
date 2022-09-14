@@ -12,9 +12,11 @@ const AboutMe = () => {
       <h1 className="aboutme">About me</h1>
       <div className="content">
         <div className="content_block">
-          <img src="./assets/foto_joris.webp" alt="" />
+          <img src="./foto_joris.webp" alt="" />
         </div>
-        <div id="abt_text" className="content_block"></div>
+        <div id="abt_text" className="content_block">
+          
+        </div>
         <div className="clear"></div>
       </div>
     </div>

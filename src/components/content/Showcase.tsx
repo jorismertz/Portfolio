@@ -3,14 +3,14 @@ const Showcase = () => {
     <div className="wrapper2">
       <div className="under_showcase">
         <div className="left_showcase">
-          <img src="./assets/portfolio/pictogrambij/1.png" alt="" />
+          <img src="./portfolio/pictogrambij/1.webp" alt="" />
         </div>
         <div className="right_showcase">
-          <img src="./assets/portfolio/bookcover/1.png" alt="" />
+          <img src="./portfolio/bookcover/1.webp" alt="" />
         </div>
       </div>
       <div className="round_logo">
-        <img src="./assets/Logo.png" alt="Joris Mertz Logo" />
+        <img src="./Logo.png" alt="" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-const Wrapper1 = () => {
+const Hero = ({ content }: { content: string }) => {
   return (
     <div className="wrapper1">
       <li className="navbar">
@@ -42,7 +42,7 @@ const Wrapper1 = () => {
             Simple <br /> &nbsp;&nbsp;and elegant <br />{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
           </h1>
-          <p className="discover">― DISCOVER</p>
+          <p className="discover">- {content.toUpperCase()}</p>
           <div className="showcase">
             <img alt="Srananthee ontwerp" src="/portfolio/srananthee/1.webp" />
           </div>
@@ -52,4 +52,4 @@ const Wrapper1 = () => {
   );
 };
 
-export default Wrapper1;
+export default Hero;
