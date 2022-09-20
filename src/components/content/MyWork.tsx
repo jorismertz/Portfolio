@@ -9,8 +9,18 @@ interface State {}
 
 class PortfolioItem extends Component<Props, State> {
   state: State = {};
+  content = this.props.content;
   render() {
-    return <div className="PortfolioItem">hi</div>;
+    return (
+      <div className="PortfolioItem">
+        <img
+          src={this.content.images[0]}
+          alt={this.content.name}
+          className="bgImg"
+        />
+        <h1>{this.content.name}</h1>
+      </div>
+    );
   }
 }
 
