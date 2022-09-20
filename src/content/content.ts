@@ -1,10 +1,10 @@
-interface AboutMe {
+export interface AboutMe {
   title: string;
   heading: string;
   content: string;
 }
 
-export type Content = {
+export interface Content {
   motto: string;
   navbar: string[];
   calltoaction: string;
@@ -27,7 +27,10 @@ const NL:Content = {
   aboutme: {
     title: "Over mij",
     heading: getAge("2004 01 01") + " jaar oud. Noord-Brabant, NL",
-    content: "Ervaring met visueel design zoals UI, Illustrations, Logo design. Front & Back end webdevelopment ervaring met PHP en NodeJS Software ervaring met Photoshop, Illustrator, After Effects, InDesign, XD Momenteel volg ik de studie Crossmedia vormgeving op het SintLucas Eindhoven In mijn vrije tijd leer ik graag nieuwe technieken of programma's waarmee ik mijn creativiteit kan uiten. Dit doe ik in verschillende vormen zoals website's, grafische ontwerpen, videobewerking en fotografie."
+    content: `Ervaring met visual design & full stack web development. Ik ben een autodidact en probeer in mijn vrije tijd veel nieuwe technieken te leren waarmee ik mijn creativiteit kan uiten. Dit doe ik in allerlei vormen zoals website’s, grafisch ontwerp, videobewerking en fotografie\n
+Ik heb meerdere jaren ervaring met verschillende Adobe software zoals Photoshop, Illustrator, After Effects en XD.\n
+Ik beheers meerdere programmeertalen, maar ik ben gespecialiseerd in NodeJS en gebruik voornamelijk React voor front-end
+    `
   }
 }
 
@@ -38,8 +41,15 @@ const EN:Content = {
   aboutme: {
     title: "About me",
     heading: getAge("2004 01 01") + " years old. Noord-Brabant, NL",
-    content: "Ervaring met visueel design zoals UI, Illustrations, Logo design. Front & Back end webdevelopment ervaring met PHP en NodeJS Software ervaring met Photoshop, Illustrator, After Effects, InDesign, XD Momenteel volg ik de studie Crossmedia vormgeving op het SintLucas Eindhoven In mijn vrije tijd leer ik graag nieuwe technieken of programma's waarmee ik mijn creativiteit kan uiten. Dit doe ik in verschillende vormen zoals website's, grafische ontwerpen, videobewerking en fotografie."
-  }
+    content: `Experience with visual design & full stack web development. I'm self taught and I try to learn many new techniques in my free time with which I can express my creativity. I do this in all sorts of forms such as website’s, graphic design, video-editing and photography\n
+I have multiple years of experience with various Adobe software such as Photoshop, Illustrator, After Effects and XD.\n
+I know multiple programming languages but I specialize in NodeJS and mainly use React for front-end`
+  } 
+}
+
+export interface Locales {
+  'NL': string;
+  'EN': string;
 }
 
 export const localeContent = {

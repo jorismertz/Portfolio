@@ -6,7 +6,7 @@ import getUserLocale from "get-user-locale";
 
 import Navbar from "../components/Navbar";
 
-import { localeContent, Content } from "../content/content";
+import { localeContent, Content, Locales } from "../content/content";
 
 import Hero from "../components/content/Hero";
 import Showcase from "../components/content/Showcase";
@@ -15,13 +15,28 @@ import MyWork from "../components/content/MyWork";
 
 function App(): ReactElement {
   const [locale, setLocale] = useState<string>(getUserLocale());
-  const [content, setContent] = useState(localeContent["NL"]);
+
+  const [content, setContent] = useState(
+    localeContent[(locale as string).toUpperCase() as keyof Locales]
+  );
+
+  function changeLocale(to: string) {
+    setLocale(to);
+    setContent(localeContent[(to as string).toUpperCase() as keyof Locales]);
+  }
 
   return (
     <>
-      <Hero content={content.calltoaction} />
+      <Hero
+        content={{
+          callToAction: content.calltoaction,
+          navBar: content.navbar,
+        }}
+        locale={locale}
+        changeLocale={changeLocale}
+      />
       <Showcase />
-      <AboutMe />
+      <AboutMe content={content.aboutme} />
       <MyWork />
       <div className="backgroundwrapper">
         <img src="/bg.webp" alt="Background" className="background" />
