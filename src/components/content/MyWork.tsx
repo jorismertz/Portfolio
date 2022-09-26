@@ -18,7 +18,7 @@ class PortfolioItem extends Component<Props, State> {
           alt={this.content.name}
           className="bgImg"
         />
-        <h1>{this.content.name}</h1>
+        <h2>{this.content.name}</h2>
       </div>
     );
   }

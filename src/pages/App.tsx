@@ -27,17 +27,19 @@ function App(): ReactElement {
 
   return (
     <>
-      <Hero
-        content={{
-          callToAction: content.calltoaction,
-          navBar: content.navbar,
-        }}
-        locale={locale}
-        changeLocale={changeLocale}
-      />
-      <Showcase />
-      <AboutMe content={content.aboutme} />
-      <MyWork />
+      <div className="sectionWrapper">
+        <Hero
+          content={{
+            callToAction: content.calltoaction,
+            navBar: content.navbar,
+          }}
+          locale={locale}
+          changeLocale={changeLocale}
+        />
+        <Showcase />
+        <AboutMe content={content.aboutme} />
+        <MyWork />
+      </div>
       <div className="backgroundwrapper">
         <img src="/bg.webp" alt="Background" className="background" />
         <div className="overlay"></div>

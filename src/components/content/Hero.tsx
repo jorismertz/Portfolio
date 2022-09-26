@@ -14,9 +14,9 @@ interface Props {
 const Hero = ({ content, locale, changeLocale }: Props) => {
   const [showLanguageSelector, setShowLanguageSelector] = useState(false);
   return (
-    <div className="wrapper1">
-      <li className="navbar">
-        <ul>
+    <section className="hero">
+      <ul className="navbar">
+        <li>
           <span id="services">
             <a
               href="https://instagram.com/jorisportfoliox/"
@@ -26,14 +26,14 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
               {content.navBar[0].toUpperCase()}
             </a>
           </span>
-        </ul>
-        <ul>
+        </li>
+        <li>
           <span id="mwbutton">{content.navBar[1].toUpperCase()}</span>
-        </ul>
-        <ul>
+        </li>
+        <li>
           <span id="about">{content.navBar[2].toUpperCase()}</span>
-        </ul>
-      </li>
+        </li>
+      </ul>
       <div className="container">
         <h1 className="title">Joris Mertz</h1>
         <i
@@ -60,7 +60,7 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
         <div className="line"></div>
         <div className="line"></div>
         <div className="par">
-          <p className="vol">VOL 3.</p>
+          <h4>VOL 3.</h4>
         </div>
         <h1 className="media_qoute">Simple and elegant design</h1>
         <div className="mobileChin"></div>
@@ -69,13 +69,15 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
             Simple <br /> &nbsp;&nbsp;and elegant <br />{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
           </h1>
-          <p className="discover">- {content.callToAction.toUpperCase()}</p>
+          <p className="discover canvas">
+            <span className="sora">-</span> {content.callToAction.toUpperCase()}
+          </p>
           <div className="showcase">
             <img alt="Srananthee ontwerp" src="/portfolio/srananthee/1.webp" />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
