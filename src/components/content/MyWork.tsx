@@ -26,12 +26,17 @@ class PortfolioItem extends Component<Props, State> {
   }
 }
 
-const MyWork = () => {
+//const AboutPage = ({ content }: { content: AboutMe }) => {
+
+interface Content {
+  content: { mywork: string };
+}
+
+const MyWork = ({ content }: Content) => {
   return (
     <section>
-      <div className="line line_narrow"></div>
-      <div className="line line_narrow"></div>
-      <h1 className="text-center">My work</h1>
+      <h1 className="text-center">{content.mywork}</h1>
+      <div className="gap"></div>
       <div className="flex-center-x">
         <div className="portfolio">
           {portfolioContent.map((data, key) => (

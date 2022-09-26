@@ -9,6 +9,7 @@ export interface Content {
   navbar: string[];
   calltoaction: string;
   aboutme: AboutMe;
+  mywork: string;
 }
 
 const getAge = (birthdate: string): number => {
@@ -31,7 +32,8 @@ const NL:Content = {
 Ik heb meerdere jaren ervaring met verschillende Adobe software zoals Photoshop, Illustrator, After Effects en XD.\n
 Ik beheers meerdere programmeertalen, maar ik ben gespecialiseerd in NodeJS en gebruik voornamelijk React voor front-end
     `
-  }
+  },
+  mywork: "Mijn werk"
 }
 
 const EN:Content = {
@@ -44,7 +46,8 @@ const EN:Content = {
     content: `Experience with visual design & full stack web development. I'm self taught and I try to learn many new techniques in my free time with which I can express my creativity. I do this in all sorts of forms such as website’s, graphic design, video-editing and photography\n
 I have multiple years of experience with various Adobe software such as Photoshop, Illustrator, After Effects and XD.\n
 I know multiple programming languages but I specialize in NodeJS and mainly use React for front-end`
-  } 
+  },
+  mywork: "My work"
 }
 
 export interface Locales {

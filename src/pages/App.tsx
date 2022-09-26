@@ -13,6 +13,17 @@ import Showcase from "../components/content/Showcase";
 import AboutMe from "../components/content/Aboutme";
 import MyWork from "../components/content/MyWork";
 
+const Spacer = () => {
+  return (
+    <>
+      <div className="gap"></div>
+      <div className="line line_narrow"></div>
+      <div className="line line_narrow"></div>
+      <div className="gap"></div>
+    </>
+  );
+};
+
 function App(): ReactElement {
   const [locale, setLocale] = useState<string>(getUserLocale());
 
@@ -36,9 +47,16 @@ function App(): ReactElement {
           locale={locale}
           changeLocale={changeLocale}
         />
+        <Spacer />
         <Showcase />
+        <Spacer />
         <AboutMe content={content.aboutme} />
-        <MyWork />
+        <Spacer />
+        <MyWork
+          content={{
+            mywork: content.mywork,
+          }}
+        />
       </main>
       <div className="backgroundwrapper">
         <img src="/bg.webp" alt="Background" className="background" />
