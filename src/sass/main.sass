@@ -79,8 +79,8 @@ h1.title
 
 .qoute
     position: absolute
-    left: 100px
-    bottom: 250px
+    left: 80px
+    bottom: 300px
 
 .showcase_wrapper
     width: 400px
@@ -184,6 +184,7 @@ section.bottom-showcase
         &:nth-child(1)
             justify-self: start
             transform: translateX(-40%)
+            margin-top: 3rem
         &:nth-child(3)
             justify-self: end
             transform: translateX(40%)
@@ -296,6 +297,14 @@ iframe
 
 .markdown-style
     color: red
+
+@media (max-width: 1090px)
+    .hide-md
+        display: none !important
+    .showcase_wrapper
+        left: calc(50% - 7rem)
+    .bottom-showcase
+        display: none !important
 
 @media (max-width: 860px)
     .container

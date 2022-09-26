@@ -4,31 +4,35 @@ import "../sass/main.sass";
 import { ReactElement, useState } from "react";
 import getUserLocale from "get-user-locale";
 
-import Navbar from "../components/Navbar";
-
-import { localeContent, Content, Locales } from "../content/content";
+import { localeContent, Locales, SupportedLocale } from "../content/content";
 
 import Hero from "../components/content/Hero";
 import Showcase from "../components/content/Showcase";
 import AboutMe from "../components/content/Aboutme";
 import MyWork from "../components/content/MyWork";
 
-const Spacer = () => {
+const Spacer = ({ hide_md }: { hide_md?: boolean }) => {
   return (
     <>
       <div className="gap"></div>
-      <div className="line line_narrow"></div>
-      <div className="line line_narrow"></div>
-      <div className="gap"></div>
+      <div className={hide_md ? "hide-md" : ""}>
+        <div className="line line_narrow"></div>
+        <div className="line line_narrow"></div>
+        <div className="gap"></div>
+      </div>
     </>
   );
 };
 
 function App(): ReactElement {
   const [locale, setLocale] = useState<string>(getUserLocale());
+  let UppercaseLocale = (locale as string).toUpperCase().split("-")[0];
+  const isSupported = SupportedLocale(UppercaseLocale);
 
-  const [content, setContent] = useState(
-    localeContent[(locale as string).toUpperCase() as keyof Locales]
+  if (!isSupported) UppercaseLocale = "EN";
+
+  var [content, setContent] = useState(
+    localeContent[UppercaseLocale as keyof Locales]
   );
 
   function changeLocale(to: string) {
@@ -47,9 +51,8 @@ function App(): ReactElement {
           locale={locale}
           changeLocale={changeLocale}
         />
-        <Spacer />
         <Showcase />
-        <Spacer />
+        <Spacer hide_md={true} />
         <AboutMe content={content.aboutme} />
         <Spacer />
         <MyWork

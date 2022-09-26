@@ -12,6 +12,12 @@ export interface Content {
   mywork: string;
 }
 
+export const SupportedLocale = (locale: string) => {
+  const supported = ['NL', 'EN'];
+  if (supported.indexOf(locale) !== -1) return true
+  else return false
+}
+
 const getAge = (birthdate: string): number => {
   // Only reason this is accurate is because i was born on 01/01/2004
   // Shouldn't use this for other purposes
