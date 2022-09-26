@@ -12,13 +12,15 @@ class PortfolioItem extends Component<Props, State> {
   content = this.props.content;
   render() {
     return (
-      <div className="PortfolioItem">
+      <div className="item">
         <img
           src={this.content.images[0]}
           alt={this.content.name}
           className="bgImg"
         />
-        <h2>{this.content.name}</h2>
+        <section className="hover flex-center">
+          <h2 className="white sora">{this.content.name}</h2>
+        </section>
       </div>
     );
   }
@@ -26,16 +28,18 @@ class PortfolioItem extends Component<Props, State> {
 
 const MyWork = () => {
   return (
-    <div className="wrapper4">
+    <section>
       <div className="line line_narrow"></div>
       <div className="line line_narrow"></div>
-      <h1 className="mywork">My work</h1>
-      <div className="work_container">
-        {portfolioContent.map((data, key) => (
-          <PortfolioItem content={data} key={key} />
-        ))}
+      <h1 className="text-center">My work</h1>
+      <div className="flex-center-x">
+        <div className="portfolio">
+          {portfolioContent.map((data, key) => (
+            <PortfolioItem content={data} key={key} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

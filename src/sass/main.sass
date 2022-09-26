@@ -161,7 +161,7 @@ section.hero
 .wrapper2
     height: 450px
 
-.aboutme, .mywork
+.aboutme, .text-center
     text-align: center
 
 section.bottom-showcase
@@ -252,23 +252,37 @@ iframe
     width: 50px
     height: 50px
 
-.work_container
-    width: calc(100% - 400px)
+.portfolio
+    $gap: 20px
     position: relative
-    left: 50%
-    transform: translateX(-50%)
     display: grid
     grid-template-columns: 1fr 1fr
-    grid-gap: 20px
-    max-width: 1200px
+    grid-gap: $gap
+    width: min(90vw, 1200px)
     padding-bottom: 100px
-
-.PortfolioItem
-    width: auto
-    aspect-ratio: 1 / 1
-    cursor: pointer
-    img
-        width: 100%
+    .item
+        cursor: pointer
+        aspect-ratio: 1 / 1
+        position: relative
+        .hover
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: rgba(0, 0, 0, 0.5)
+            text-align: center
+            padding: 3em
+            opacity: 0
+            transition: opacity ease-in .5s
+        &:hover
+            .hover
+                opacity: 1
+            h2
+                opacity: 1
+                position: relative
+        img
+            width: 100%
 
 .work_item
     max-width: 100%

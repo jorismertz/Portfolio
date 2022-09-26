@@ -27,7 +27,7 @@ function App(): ReactElement {
 
   return (
     <>
-      <div className="sectionWrapper">
+      <main className="sectionWrapper">
         <Hero
           content={{
             callToAction: content.calltoaction,
@@ -39,7 +39,7 @@ function App(): ReactElement {
         <Showcase />
         <AboutMe content={content.aboutme} />
         <MyWork />
-      </div>
+      </main>
       <div className="backgroundwrapper">
         <img src="/bg.webp" alt="Background" className="background" />
         <div className="overlay"></div>

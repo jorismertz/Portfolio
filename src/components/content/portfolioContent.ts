@@ -55,7 +55,7 @@ export const portfolioContent = [
     ],
   },
   {
-    name: "Letterexperimenten",
+    name: "Letter-experimenten",
     description:
       "Voor deze opdracht heb ik 2 verschillende posters gemaakt waarin ik heb geëxperimenteerd met typografie",
     instagram_link: "https://www.instagram.com/p/CULHpnpsOO8/",
