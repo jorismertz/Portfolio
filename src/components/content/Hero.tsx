@@ -15,6 +15,7 @@ interface Props {
 const Hero = ({ content, locale, changeLocale }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseRef = useRef(0);
+  const showcaseInterval = 2e3;
 
   const updateShowcases = (val: number): void => {
     const length = portfolioContent.length;
@@ -30,7 +31,7 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       updateShowcases(showcaseRef.current);
-    }, 2000);
+    }, showcaseInterval);
     return () => {
       clearTimeout(interval);
     };
