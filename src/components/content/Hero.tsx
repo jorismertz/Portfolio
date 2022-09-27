@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { portfolioContent, portfolioItem } from "./portfolioContent";
 
 interface Content {
   callToAction: string;
@@ -12,6 +13,29 @@ interface Props {
 }
 
 const Hero = ({ content, locale, changeLocale }: Props) => {
+  const [currentShowcase, setCurrentShowcase] = useState<number>(0);
+  const showcaseRef = useRef(0);
+
+  const updateShowcases = (val: number): void => {
+    const length = portfolioContent.length;
+    if (val + 1 >= length) {
+      setCurrentShowcase(0);
+    } else setCurrentShowcase(val + 1);
+  };
+
+  useEffect(() => {
+    showcaseRef.current = currentShowcase;
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateShowcases(showcaseRef.current);
+    }, 2000);
+    return () => {
+      clearTimeout(interval);
+    };
+  }, []);
+
   const [showLanguageSelector, setShowLanguageSelector] = useState(false);
   return (
     <section className="hero">
@@ -71,7 +95,7 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
             <span className="sora">-</span> {content.callToAction.toUpperCase()}
           </p>
           <div className="showcase">
-            <img alt="Srananthee ontwerp" src="/portfolio/srananthee/1.webp" />
+            <img alt="" src={portfolioContent[currentShowcase].images[0]} />
           </div>
         </div>
       </div>
