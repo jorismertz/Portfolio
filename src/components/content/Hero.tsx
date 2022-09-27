@@ -15,7 +15,7 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
   const [showLanguageSelector, setShowLanguageSelector] = useState(false);
   return (
     <section className="hero">
-      <ul className="navbar">
+      <ul className="navbar hide-sm">
         <li>
           <span id="services">
             <a
@@ -59,17 +59,15 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
         </div>
         <div className="line"></div>
         <div className="line"></div>
-        <div className="par">
-          <h4>VOL 3.</h4>
-        </div>
+        <h4>VOL 3.</h4>
         <h1 className="media_qoute">Simple and elegant design</h1>
         <div className="mobileChin"></div>
         <div className="showcase_wrapper">
-          <h1 className="qoute">
+          <h1 className="qoute hide-sm">
             Simple <br /> &nbsp;&nbsp;and elegant <br />{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
           </h1>
-          <p className="discover canvas">
+          <p className="discover hide-sm canvas">
             <span className="sora">-</span> {content.callToAction.toUpperCase()}
           </p>
           <div className="showcase">
