@@ -1,30 +1,31 @@
-import { Component } from "react";
+import { useState } from "react";
 import { portfolioContent, portfolioItem } from "./portfolioContent";
+import PortfolioViewer from "../PortfolioViewer";
 
 interface Props {
   content: portfolioItem;
   key: number;
 }
-interface State {}
 
-class PortfolioItem extends Component<Props, State> {
-  state: State = {};
-  content = this.props.content;
-  render() {
-    return (
-      <div className="item">
-        <img
-          src={this.content.images[0]}
-          alt={this.content.name}
-          className="bgImg"
-        />
+const PortfolioItem = ({ content, key }: Props) => {
+  const [viewerState, setViewerState] = useState<boolean>(false);
+  const toggleViewer = (): void => {
+    setViewerState(!viewerState);
+  };
+  return (
+    <>
+      {viewerState && (
+        <PortfolioViewer toggle={toggleViewer} content={content} />
+      )}
+      <div className="item" onClick={toggleViewer}>
+        <img src={content.images[0]} alt={content.name} className="bgImg" />
         <section className="hover flex-center">
-          <h2 className="white sora">{this.content.name}</h2>
+          <h2 className="white sora">{content.name}</h2>
         </section>
       </div>
-    );
-  }
-}
+    </>
+  );
+};
 
 //const AboutPage = ({ content }: { content: AboutMe }) => {
 

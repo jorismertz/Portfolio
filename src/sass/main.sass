@@ -282,6 +282,52 @@ iframe
         img
             width: 100%
 
+.portfolio-viewer
+    background: rgba(0,0,0,0.6)
+    position: fixed
+    z-index: 10
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    .fa-xmark
+        position: absolute
+        right: 2rem
+        top: 2.75rem
+        font-size: 1.5rem
+        z-index: 11
+        cursor: pointer
+    .portfolio-content
+        position: inherit
+        background: white
+        width: min(95vw, 90rem)
+        height: max(95vh, 40rem)
+        padding: 3rem
+        padding-top: 6rem
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 20px
+        section
+            section
+                aspect-ratio: 1 / 1
+                width: 100%
+                img
+                    width: 100%
+            aside
+                margin-top: 20px
+                width: 100%
+                display: grid
+                grid-gap: 20px
+                grid-template-columns: repeat(4,1fr)
+                .portfolio-small
+                    aspect-ratio: 1 / 1
+                    cursor: pointer
+                    img
+                        width: 100%
+        aside
+            h1
+                margin-block-end: 1rem
+
 .work_item
     max-width: 100%
     float: left
@@ -304,6 +350,11 @@ iframe
         display: none !important
 
 @media (max-width: 860px)
+    .portfolio-content
+        grid-template-columns: unset !important
+        grid-template-rows: 1fr 1fr
+        padding: 1.5rem !important
+        padding-top: 3rem !important
     .container
         width: calc(100vw - 50px) !important
         left: 25px
