@@ -26,6 +26,7 @@ const Spacer = ({ hide_md }: { hide_md?: boolean }) => {
 
 function App(): ReactElement {
   const [locale, setLocale] = useState<string>(getUserLocale());
+  const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   let UppercaseLocale = (locale as string).toUpperCase().split("-")[0];
   const isSupported = SupportedLocale(UppercaseLocale);
 
@@ -41,8 +42,9 @@ function App(): ReactElement {
   }
 
   const refs = {
-    aboutMe: useRef(),
-    myWork: useRef(),
+    aboutMe: useRef<HTMLHeadingElement>(),
+    myWork: useRef<HTMLHeadingElement>(),
+    showcaseRef: useRef<number>(0),
   };
 
   return (
@@ -52,7 +54,9 @@ function App(): ReactElement {
           refs={{
             aboutme: refs.aboutMe,
             mywork: refs.myWork,
+            showcase: refs.showcaseRef,
           }}
+          setShowcase={setCurrentShowcase}
           content={{
             callToAction: content.calltoaction,
             navBar: content.navbar,
@@ -60,7 +64,7 @@ function App(): ReactElement {
           locale={locale}
           changeLocale={changeLocale}
         />
-        <Showcase />
+        <Showcase currentShowcase={currentShowcase} />
         <Spacer hide_md={true} />
         <AboutMe scroll={refs.aboutMe} content={content.aboutme} />
         <Spacer />

@@ -13,7 +13,9 @@ interface Props {
   refs: {
     aboutme: any;
     mywork: any;
+    showcase: any;
   };
+  setShowcase: any;
 }
 
 const TextSpacer = ({ length }: { length: number }) => {
@@ -24,25 +26,28 @@ const TextSpacer = ({ length }: { length: number }) => {
   return <>{elements}</>;
 };
 
-const Hero = ({ content, locale, changeLocale, refs }: Props) => {
+const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
-  const showcaseRef = useRef(0);
   const showcaseInterval = 2e3;
 
   const updateShowcases = (val: number): void => {
     const length = portfolioContent.length;
     if (val + 1 >= length) {
+      setShowcase(0);
       setCurrentShowcase(0);
-    } else setCurrentShowcase(val + 1);
+    } else {
+      setCurrentShowcase(val + 1);
+      setShowcase(val + 1);
+    }
   };
 
   useEffect(() => {
-    showcaseRef.current = currentShowcase;
+    refs.showcase.current = currentShowcase;
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      updateShowcases(showcaseRef.current);
+      updateShowcases(refs.showcase.current);
     }, showcaseInterval);
     return () => {
       clearTimeout(interval);
