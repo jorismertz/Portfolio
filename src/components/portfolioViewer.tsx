@@ -42,7 +42,7 @@ const PortfolioViewer = ({ content, toggle }: Props) => {
           </aside>
         </section>
         <aside>
-          <h1>{content.name}</h1>
+          <h2>{content.name}</h2>
           <p>{content.description}</p>
         </aside>
       </div>
