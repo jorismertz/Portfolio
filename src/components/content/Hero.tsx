@@ -85,7 +85,20 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
         <div className="line"></div>
         <div className="line"></div>
         <h4>VOL 3.</h4>
-        <h1 className="media_qoute">Simple and elegant design</h1>
+        <div className="show-md">
+          <div className="gap"></div>
+          <h2 className="mobile-qoute show-md" style={{ display: "none" }}>
+            Development and creative design
+          </h2>
+          <button
+            className="button canvas"
+            style={{
+              marginTop: "20px",
+            }}
+          >
+            Read more
+          </button>
+        </div>
         <div className="mobileChin"></div>
         <div className="showcase_wrapper">
           <h1 className="qoute hide-sm">
@@ -95,7 +108,7 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
           <p className="discover hide-sm canvas">
             <span className="sora">-</span> {content.callToAction.toUpperCase()}
           </p>
-          <div className="showcase">
+          <div className="showcase hide-sm">
             <img alt="" src={portfolioContent[currentShowcase].images[0]} />
           </div>
         </div>
