@@ -1,7 +1,7 @@
 import "../sass/globals.sass";
 import "../sass/main.sass";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useRef } from "react";
 import getUserLocale from "get-user-locale";
 
 import { localeContent, Locales, SupportedLocale } from "../content/content";
@@ -40,10 +40,13 @@ function App(): ReactElement {
     setContent(localeContent[(to as string).toUpperCase() as keyof Locales]);
   }
 
+  const aboutMeRef = useRef();
+
   return (
     <>
       <main className="sectionWrapper">
         <Hero
+          scroll={aboutMeRef}
           content={{
             callToAction: content.calltoaction,
             navBar: content.navbar,
@@ -53,7 +56,7 @@ function App(): ReactElement {
         />
         <Showcase />
         <Spacer hide_md={true} />
-        <AboutMe content={content.aboutme} />
+        <AboutMe scroll={aboutMeRef} content={content.aboutme} />
         <Spacer />
         <MyWork
           content={{

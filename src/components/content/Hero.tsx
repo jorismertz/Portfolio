@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { portfolioContent, portfolioItem } from "./portfolioContent";
+import { portfolioContent } from "./portfolioContent";
 
 interface Content {
   callToAction: string;
@@ -10,9 +10,18 @@ interface Props {
   content: Content;
   locale: string;
   changeLocale: any;
+  scroll: any;
 }
 
-const Hero = ({ content, locale, changeLocale }: Props) => {
+const TextSpacer = ({ length }: { length: number }) => {
+  let elements = [];
+  for (let i = 0; i < length; i++) {
+    elements.push(<>&nbsp;</>);
+  }
+  return <>{elements}</>;
+};
+
+const Hero = ({ content, locale, changeLocale, scroll }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseRef = useRef(0);
   const showcaseInterval = 2e3;
@@ -95,6 +104,9 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
             style={{
               marginTop: "20px",
             }}
+            onClick={() => {
+              scroll.current.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             Read more
           </button>
@@ -102,8 +114,10 @@ const Hero = ({ content, locale, changeLocale }: Props) => {
         <div className="mobileChin"></div>
         <div className="showcase_wrapper">
           <h1 className="qoute hide-sm">
-            Simple <br /> &nbsp;&nbsp;and elegant <br />{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
+            development
+            <br /> <TextSpacer length={4} /> and creative <br />
+            <TextSpacer length={20} />
+            design
           </h1>
           <p className="discover hide-sm canvas">
             <span className="sora">-</span> {content.callToAction.toUpperCase()}
