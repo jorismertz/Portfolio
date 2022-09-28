@@ -10,3 +10,36 @@
     font-family: 'Canvas'
     src: url(font/Light.otf)
     font-weight: 300
+
+:root
+    --sizeh1: 5.5rem
+    --sizeh2: 3rem
+    --sizeh3: 2rem
+    --sizeh4: 1.5rem
+    --size-p: 1rem
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap')
+
+.sora
+    font-family: 'Sora', sans-serif
+
+h1, h2, .canvas
+    font-family: 'Canvas', serif
+
+h1
+    font-size: var(--sizeh1)
+
+h2
+    font-size: var(--sizeh2)
+
+h3
+    font-size: var(--sizeh3)
+p
+    font-size: var(--size-p)
+    font-family: 'Sora', sans-serif
+    font-weight: 300
+
+@media (max-width: 560px)
+    :root
+        --sizeh1: 15vw
+        --sizeh2: min(2.5rem, 10vw)

@@ -3,6 +3,8 @@
 
 *
     box-sizing: border-box
+    margin-block-end: unset
+    margin-block-start: unset
 
 body, html
     margin: 0
@@ -10,5 +12,37 @@ body, html
     width: 100%
     height: 100%
 
+body
+    overflow-x: hidden
+
+.gap
+    position: relative
+    width: 100%
+    height: 6rem
+
 .clear
     clear: both
+
+.flex-center-x
+    display: flex
+    justify-content: center
+
+.flex-center-y
+    display: flex
+    align-items: center
+
+.flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+.white
+    color: white
+
+.button
+    padding: .7rem 4rem
+    background: none
+    border: 2px solid black
+    font-size: var(--sizeh4)
+    font-weight: bold
+    cursor: pointer

@@ -5,22 +5,20 @@
     left: 100px
 
 h1.title
-    font-family: Canvas
-    font-weight: bold
-    font-size: 72px
     margin-bottom: 15px
 
 .backgroundwrapper
     height: 100vh
-    width: 100%
+    width: 100vw
     overflow: hidden
     position: absolute
     top: 0
     z-index: -10
 
 .background
-    width: 100%
-    min-height: 100%
+    aspect-ratio: 16/9
+    min-height: 100vh
+    min-width: 100vw
 
 .overlay
     width: 100%
@@ -30,14 +28,6 @@ h1.title
     position: absolute
     z-index: 10
     top: 0
-
-.par
-    margin-top: -10px
-
-.vol
-    font-weight: bold
-    font-size: 20px
-    font-family: canvas
 
 .line
     width: 100%
@@ -50,9 +40,8 @@ h1.title
     position: relative
     left: 20%
 
-li
+.navbar
     list-style: none
-    font-family: canvas
     font-weight: bold
     transform: rotate(-90deg)
     width: 417px
@@ -60,19 +49,15 @@ li
     position: absolute
     left: -135px
     top: 450px
-
-ul
-    float: left
-    margin-left: 20px
-
+    li
+        float: left
+        margin-left: 20px
     span
         color: black
         text-decoration: none
-
     a
         color: black
         text-decoration: none
-
     &:hover
         text-decoration: underline
 
@@ -90,11 +75,9 @@ ul
         top: 5px
 
 .qoute
-    font-family: canvas
-    font-size: 82px
     position: absolute
-    left: 100px
-    bottom: 250px
+    left: 50px
+    bottom: 300px
 
 .showcase_wrapper
     width: 400px
@@ -124,6 +107,19 @@ ul
         background: #FF6D44
         transition: transform .3s ease
 
+.languageSelector
+    position: relative
+    top: 15px
+    right: 10px
+    transition: opacity .5s ease-in-out
+    button
+        float: right
+        margin: 0 5px
+        background: none
+        border: none
+        padding: 5px 10px
+        cursor: pointer
+
 .discover
     position: absolute
     left: 440px
@@ -151,7 +147,10 @@ ul
         z-index: -1
         transition: transform .3s ease
 
-.wrapper1
+.sectionWrapper
+    width: 100%
+
+section.hero
     width: 100%
     height: calc(100vh + 200px)
     overflow: hidden
@@ -159,64 +158,55 @@ ul
 .wrapper2
     height: 450px
 
-.under_showcase
-    position: absolute
-    width: 100%
-    overflow: hidden
-    .left_showcase
-        width: 350px
-        height: 350px
-        left: -170px
-    .right_showcase
-        height: 300px
-        width: 300px
-        left: calc(100vw - 150px)
-        top: -350px
-
-.aboutme, .mywork
-    font-family: canvas
-    font-size: 62px
-    font-weight: normal
+.aboutme, .text-center
     text-align: center
 
-.left_showcase, .right_showcase
-    background: #fff
+section.bottom-showcase
+    width: 100vw
     position: relative
-    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1)
-
-.left_showcase img, .right_showcase img
-    width: calc(100% - 10px)
-    height: calc(100% - 10px)
-    position: relative
-    left: 5px
-    top: 5px
-
-.round_logo img
-    height: 250px
-    position: relative
-    left: 50%
-    transform: translateX(-50%)
-    top: 100px
+    margin-top: 50px
+    display: grid
+    grid-template-columns: 25rem 1fr 25rem
+    .round-logo
+        justify-self: center
+        position: relative
+        margin-top: 20rem
+    .item
+        aspect-ratio: 1 / 1
+        width: 25rem
+        padding: 5px
+        background: white
+        position: inherit
+        box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1)
+        &:nth-child(1)
+            justify-self: start
+            transform: translateX(-40%)
+            margin-top: 3rem
+        &:nth-child(3)
+            justify-self: end
+            transform: translateX(40%)
+        img
+            width: 100%
+            height: 100%
 
 .content
-    width: calc(100vw - 200px)
+    // width: calc(100vw - 200px)
     max-width: 1000px
     padding: 20px
     left: 50%
     transform: translateX(-50%)
     position: relative
+    display: flex
+    flex-flow: row nowrap
+    gap: 20px
 
 .content_block
     position: relative
-    width: calc(50% - 20px)
-    margin: 10px
-    float: left
     img
         width: 100%
         pointer-events: none
     p
         margin-block-start: 0
-        font-family: canvas
 
 .snapwidget-widget
     cursor: pointer
@@ -232,7 +222,6 @@ iframe
 .topnav
     overflow: hidden
     display: none
-    font-family: 'Filson', sans-serif
     #myLinks
         display: none
         a
@@ -261,17 +250,37 @@ iframe
     width: 50px
     height: 50px
 
-.work_container
-    width: calc(100% - 400px)
+.portfolio
+    $gap: 20px
     position: relative
-    left: 50%
-    transform: translateX(-50%)
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
-    grid-gap: 20px
-    align-items: stretch
-    max-width: 1200px
+    grid-template-columns: 1fr 1fr
+    grid-gap: $gap
+    width: min(90vw, 1200px)
     padding-bottom: 100px
+    .item
+        cursor: pointer
+        aspect-ratio: 1 / 1
+        position: relative
+        .hover
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: rgba(0, 0, 0, 0.5)
+            text-align: center
+            padding: 3em
+            opacity: 0
+            transition: opacity ease-in .5s
+        &:hover
+            .hover
+                opacity: 1
+            h2
+                opacity: 1
+                position: relative
+        img
+            width: 100%
 
 .work_item
     max-width: 100%
@@ -285,3 +294,33 @@ iframe
 
 .markdown-style
     color: red
+
+@media (max-width: 1090px)
+    .hide-md
+        display: none !important
+    .showcase_wrapper
+        left: calc(50% - 7rem)
+    .bottom-showcase
+        display: none !important
+
+@media (max-width: 860px)
+    .container
+        width: calc(100vw - 50px) !important
+        left: 25px
+    .hide-sm
+        display: none !important
+    .showcase_wrapper
+        left: 50%
+    .content
+        flex-flow: row wrap
+    .show-md
+        display: block !important
+@media (max-width: 560px)
+    .hide-xs
+        display: none !important
+    .portfolio
+        grid-template-columns: 1fr
+    .gap
+        height: 3rem
+    .show-sm
+        display: block !important

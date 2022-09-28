@@ -1,21 +1,25 @@
-/**
- * add markup reader
- */
-const AboutMe = () => {
+import { AboutMe } from "../../content/content";
+
+const AboutPage = ({ content, scroll }: { content: AboutMe; scroll: any }) => {
   return (
     <div id="aboutme_scroll" className="wrapper3">
-      <br />
-      <br />
-      <br />
-      <div className="line line_narrow"></div>
-      <div className="line line_narrow"></div>
-      <h1 className="aboutme">About me</h1>
+      <h1 className="aboutme" ref={scroll}>
+        {content.title}
+      </h1>
+      <div className="gap"></div>
       <div className="content">
         <div className="content_block">
-          <img src="./foto_joris.webp" alt="" />
+          <img src="./foto.jpg" alt="" />
         </div>
         <div id="abt_text" className="content_block">
-          
+          <h3>{content.heading}</h3>
+          <p
+            style={{
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {content.content}
+          </p>
         </div>
         <div className="clear"></div>
       </div>
@@ -23,4 +27,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default AboutPage;
