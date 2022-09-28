@@ -1,8 +1,9 @@
 .container
-    width: calc(100vw - 200px)
-    position: absolute
-    top: 0
-    left: 100px
+    width: calc(100vw - 6rem)
+    position: relative
+    left: 3rem
+    margin-top: 2rem
+    height: 100%
 
 h1.title
     margin-bottom: 15px
@@ -40,27 +41,6 @@ h1.title
     position: relative
     left: 20%
 
-.navbar
-    list-style: none
-    font-weight: bold
-    transform: rotate(-90deg)
-    width: 417px
-    height: 20px
-    position: absolute
-    left: -135px
-    top: 450px
-    li
-        float: left
-        margin-left: 20px
-    span
-        color: black
-        text-decoration: none
-    a
-        color: black
-        text-decoration: none
-    &:hover
-        text-decoration: underline
-
 .showcase
     width: 400px
     height: 400px
@@ -82,9 +62,30 @@ h1.title
 .showcase_wrapper
     width: 400px
     position: absolute
-    top: calc(100vh - 200px)
+    bottom: 150px
     left: 50%
     transform: translateX(-50%)
+
+.navbar-links
+    list-style: none
+    float: left
+    li
+        float: left
+        margin: 0 2rem
+        font-weight: bold
+        a
+            color: black
+            text-decoration: none
+
+header.header
+    width: 90vw
+    position: relative
+    left: 5vw
+    nav
+        display: grid
+        grid-template-columns: auto 1fr auto
+        margin-top: 1rem
+        height: 1rem
 
 .navbar ul span
     position: relative
@@ -109,9 +110,10 @@ h1.title
 
 .languageSelector
     position: relative
-    top: 15px
-    right: 10px
     transition: opacity .5s ease-in-out
+    float: right
+    top: -3px
+    margin-right: 1rem
     button
         float: right
         margin: 0 5px
@@ -355,9 +357,9 @@ iframe
         grid-template-rows: 1fr 1fr
         padding: 1.5rem !important
         padding-top: 3rem !important
-    .container
-        width: calc(100vw - 50px) !important
-        left: 25px
+    .container, header.header
+        width: calc(100vw - 4rem) !important
+        left: 2rem !important
     .hide-sm
         display: none !important
     .showcase_wrapper

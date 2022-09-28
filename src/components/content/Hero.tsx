@@ -54,61 +54,16 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
     };
   }, []);
 
-  const [showLanguageSelector, setShowLanguageSelector] = useState(false);
   return (
     <section className="hero">
-      <ul className="navbar hide-sm">
-        <li>
-          <span id="services">
-            <a
-              href="https://instagram.com/jorisportfoliox/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {content.navBar[0].toUpperCase()}
-            </a>
-          </span>
-        </li>
-        <li>
-          <span id="mwbutton">{content.navBar[1].toUpperCase()}</span>
-        </li>
-        <li>
-          <span id="about">{content.navBar[2].toUpperCase()}</span>
-        </li>
-      </ul>
       <div className="container">
-        <h1 className="title">Joris Mertz</h1>
-        <i
-          className="fa-solid fa-globe"
-          style={{
-            float: "right",
-            position: "relative",
-            top: "20px",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            setShowLanguageSelector(!showLanguageSelector);
-          }}
-        ></i>
-        <div
-          className="languageSelector"
-          style={{
-            opacity: showLanguageSelector ? "1" : "0",
-          }}
-        >
-          <button onClick={() => changeLocale("NL")}>NL</button>
-          <button onClick={() => changeLocale("EN")}>EN</button>
-        </div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <h4>VOL 3.</h4>
         <div
           className="show-md"
           style={{
             display: "none",
           }}
         >
-          <div className="gap"></div>
+          {/* <div className="gap"></div> */}
           <h2 className="mobile-qoute show-md" style={{ display: "none" }}>
             Development and creative design
           </h2>
