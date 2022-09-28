@@ -30,12 +30,15 @@ class PortfolioItem extends Component<Props, State> {
 
 interface Content {
   content: { mywork: string };
+  refs: { mywork: any };
 }
 
-const MyWork = ({ content }: Content) => {
+const MyWork = ({ content, refs }: Content) => {
   return (
     <section>
-      <h1 className="text-center">{content.mywork}</h1>
+      <h1 className="text-center" ref={refs.mywork}>
+        {content.mywork}
+      </h1>
       <div className="gap"></div>
       <div className="flex-center-x">
         <div className="portfolio">

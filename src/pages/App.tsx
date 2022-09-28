@@ -40,13 +40,19 @@ function App(): ReactElement {
     setContent(localeContent[(to as string).toUpperCase() as keyof Locales]);
   }
 
-  const aboutMeRef = useRef();
+  const refs = {
+    aboutMe: useRef(),
+    myWork: useRef(),
+  };
 
   return (
     <>
       <main className="sectionWrapper">
         <Hero
-          scroll={aboutMeRef}
+          refs={{
+            aboutme: refs.aboutMe,
+            mywork: refs.myWork,
+          }}
           content={{
             callToAction: content.calltoaction,
             navBar: content.navbar,
@@ -56,9 +62,12 @@ function App(): ReactElement {
         />
         <Showcase />
         <Spacer hide_md={true} />
-        <AboutMe scroll={aboutMeRef} content={content.aboutme} />
+        <AboutMe scroll={refs.aboutMe} content={content.aboutme} />
         <Spacer />
         <MyWork
+          refs={{
+            mywork: refs.myWork,
+          }}
           content={{
             mywork: content.mywork,
           }}

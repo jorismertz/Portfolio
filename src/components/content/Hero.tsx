@@ -10,7 +10,10 @@ interface Props {
   content: Content;
   locale: string;
   changeLocale: any;
-  scroll: any;
+  refs: {
+    aboutme: any;
+    mywork: any;
+  };
 }
 
 const TextSpacer = ({ length }: { length: number }) => {
@@ -21,7 +24,7 @@ const TextSpacer = ({ length }: { length: number }) => {
   return <>{elements}</>;
 };
 
-const Hero = ({ content, locale, changeLocale, scroll }: Props) => {
+const Hero = ({ content, locale, changeLocale, refs }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseRef = useRef(0);
   const showcaseInterval = 2e3;
@@ -94,7 +97,12 @@ const Hero = ({ content, locale, changeLocale, scroll }: Props) => {
         <div className="line"></div>
         <div className="line"></div>
         <h4>VOL 3.</h4>
-        <div className="show-md">
+        <div
+          className="show-md"
+          style={{
+            display: "none",
+          }}
+        >
           <div className="gap"></div>
           <h2 className="mobile-qoute show-md" style={{ display: "none" }}>
             Development and creative design
@@ -105,7 +113,7 @@ const Hero = ({ content, locale, changeLocale, scroll }: Props) => {
               marginTop: "20px",
             }}
             onClick={() => {
-              scroll.current.scrollIntoView({ behavior: "smooth" });
+              refs.aboutme.current.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Read more
@@ -119,7 +127,12 @@ const Hero = ({ content, locale, changeLocale, scroll }: Props) => {
             <TextSpacer length={20} />
             design
           </h1>
-          <p className="discover hide-sm canvas">
+          <p
+            onClick={() => {
+              refs.mywork.current.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="discover hide-sm canvas"
+          >
             <span className="sora">-</span> {content.callToAction.toUpperCase()}
           </p>
           <div className="showcase hide-sm">
