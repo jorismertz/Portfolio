@@ -1,3 +1,25 @@
+@mixin linkHover($color)
+    cursor: pointer
+    position: relative
+    &::before
+        transform: scaleX(0)
+        transform-origin: bottom right
+    &:hover::before
+        transform: scaleX(1)
+        transform-origin: bottom left
+    &::before
+        content: " "
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        inset: 0 0 0 0
+        z-index: -1
+        background: $color
+        transition: transform .3s ease
+
 .container
     width: calc(100vw - 6rem)
     position: relative
@@ -86,27 +108,8 @@ header.header
         grid-template-columns: auto 1fr auto
         margin-top: 1rem
         height: 1rem
-
-.navbar ul span
-    position: relative
-    &::before
-        transform: scaleX(0)
-        transform-origin: bottom right
-    &:hover::before
-        transform: scaleX(1)
-        transform-origin: bottom left
-    &::before
-        content: " "
-        display: block
-        position: absolute
-        top: 0
-        right: 0
-        bottom: 0
-        left: 0
-        inset: 0 0 0 0
-        z-index: -1
-        background: #FF6D44
-        transition: transform .3s ease
+        ul li
+            @include linkHover(#E56D31)
 
 .languageSelector
     position: relative
@@ -121,6 +124,9 @@ header.header
         border: none
         padding: 5px 10px
         cursor: pointer
+        font-weight: bold
+        font-size: var(--sizep)
+        @include linkHover(#B14BB0)
 
 .discover
     position: absolute
@@ -352,6 +358,8 @@ iframe
         display: none !important
 
 @media (max-width: 860px)
+    .navbar-links
+        display: none !important
     .portfolio-content
         grid-template-columns: unset !important
         grid-template-rows: 1fr 1fr

@@ -26,8 +26,12 @@ const Lang = ({ langSelector, changeLocale }: LangProps) => {
           opacity: showLanguageSelector ? "1" : "0",
         }}
       >
-        <button onClick={() => changeLocale("NL")}>NL</button>
-        <button onClick={() => changeLocale("EN")}>EN</button>
+        <button className="canvas" onClick={() => changeLocale("NL")}>
+          NL
+        </button>
+        <button className="canvas" onClick={() => changeLocale("EN")}>
+          EN
+        </button>
       </div>
     </div>
   );
