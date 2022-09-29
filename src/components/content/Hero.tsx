@@ -28,29 +28,28 @@ const Hero = ({ content, refs, setShowcase }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseInterval = 2e3;
 
-  const updateShowcases = (val: number): void => {
-    const length = portfolioContent.length;
-    if (val + 1 >= length) {
-      setShowcase(0);
-      setCurrentShowcase(0);
-    } else {
-      setCurrentShowcase(val + 1);
-      setShowcase(val + 1);
-    }
-  };
-
   useEffect(() => {
     refs.showcase.current = currentShowcase;
   });
 
   useEffect(() => {
+    const updateShowcases = (val: number): void => {
+      const length = portfolioContent.length;
+      if (val + 1 >= length) {
+        setShowcase(0);
+        setCurrentShowcase(0);
+      } else {
+        setCurrentShowcase(val + 1);
+        setShowcase(val + 1);
+      }
+    };
     const interval = setInterval(() => {
       updateShowcases(refs.showcase.current);
     }, showcaseInterval);
     return () => {
       clearTimeout(interval);
     };
-  }, [refs.showcase, updateShowcases]);
+  }, [refs.showcase, setShowcase]);
 
   return (
     <section className="hero">
