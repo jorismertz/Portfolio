@@ -50,7 +50,7 @@ const Hero = ({ content, refs, setShowcase }: Props) => {
     return () => {
       clearTimeout(interval);
     };
-  }, []);
+  }, [refs.showcase, updateShowcases]);
 
   return (
     <section className="hero">
