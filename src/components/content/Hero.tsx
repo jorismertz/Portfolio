@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, RefObject } from "react";
 import { portfolioContent } from "./portfolioContent";
 
 interface Content {
@@ -8,11 +8,9 @@ interface Content {
 
 interface Props {
   content: Content;
-  locale: string;
-  changeLocale: any;
   refs: {
-    aboutme: any;
-    mywork: any;
+    aboutme: RefObject<HTMLHeadingElement>;
+    mywork: RefObject<HTMLHeadingElement>;
     showcase: any;
   };
   setShowcase: any;
@@ -26,7 +24,7 @@ const TextSpacer = ({ length }: { length: number }) => {
   return <>{elements}</>;
 };
 
-const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
+const Hero = ({ content, refs, setShowcase }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseInterval = 2e3;
 
@@ -73,7 +71,8 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
               marginTop: "20px",
             }}
             onClick={() => {
-              refs.aboutme.current.scrollIntoView({ behavior: "smooth" });
+              if (refs.aboutme.current !== null)
+                refs.aboutme.current.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Read more
@@ -89,7 +88,8 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
           </h1>
           <p
             onClick={() => {
-              refs.mywork.current.scrollIntoView({ behavior: "smooth" });
+              if (refs.mywork.current !== null)
+                refs.mywork.current.scrollIntoView({ behavior: "smooth" });
             }}
             className="discover hide-sm canvas"
           >

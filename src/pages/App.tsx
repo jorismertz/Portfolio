@@ -47,8 +47,8 @@ function App(): ReactElement {
   }
 
   const refs = {
-    aboutMe: useRef<HTMLHeadingElement>(),
-    myWork: useRef<HTMLHeadingElement>(),
+    aboutMe: useRef<HTMLHeadingElement>(null),
+    myWork: useRef<HTMLHeadingElement>(null),
     showcaseRef: useRef<number>(0),
   };
 
@@ -60,6 +60,10 @@ function App(): ReactElement {
           navbar: content.navbar,
         }}
         langSelector={[showLanguageSelector, setShowLanguageSelector]}
+        scrollToRefs={{
+          aboutme: refs.aboutMe,
+          mywork: refs.myWork,
+        }}
       />
       <main className="sectionWrapper">
         <Hero
@@ -73,8 +77,6 @@ function App(): ReactElement {
             callToAction: content.calltoaction,
             navBar: content.navbar,
           }}
-          locale={locale}
-          changeLocale={changeLocale}
         />
         <Showcase currentShowcase={currentShowcase} />
         <Spacer hide_md={true} />

@@ -1,4 +1,5 @@
-import type { Content } from "../content/content";
+// import type { Content } from "../content/content";
+import { RefObject } from "react";
 
 interface LangProps {
   langSelector: any[];
@@ -43,9 +44,18 @@ interface Props {
   };
   langSelector: any[];
   changeLocale: (to: string) => void;
+  scrollToRefs: {
+    aboutme: RefObject<HTMLHeadingElement>;
+    mywork: RefObject<HTMLHeadingElement>;
+  };
 }
 
-const Navbar = ({ content, langSelector, changeLocale }: Props) => {
+const Navbar = ({
+  content,
+  langSelector,
+  changeLocale,
+  scrollToRefs,
+}: Props) => {
   return (
     <header className="header">
       <h1>Joris Mertz</h1>
@@ -65,10 +75,24 @@ const Navbar = ({ content, langSelector, changeLocale }: Props) => {
               </a>
             </span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              if (scrollToRefs.mywork.current !== null)
+                scrollToRefs.mywork.current.scrollIntoView({
+                  behavior: "smooth",
+                });
+            }}
+          >
             <span id="mwbutton">{content.navbar[1].toUpperCase()}</span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              if (scrollToRefs.aboutme.current !== null)
+                scrollToRefs.aboutme.current.scrollIntoView({
+                  behavior: "smooth",
+                });
+            }}
+          >
             <span id="about">{content.navbar[2].toUpperCase()}</span>
           </li>
         </ul>
