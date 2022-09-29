@@ -6,6 +6,7 @@ import getUserLocale from "get-user-locale";
 
 import { localeContent, Locales, SupportedLocale } from "../content/content";
 
+import Navbar from "../components/Navbar";
 import Hero from "../components/content/Hero";
 import Showcase from "../components/content/Showcase";
 import AboutMe from "../components/content/Aboutme";
@@ -25,8 +26,12 @@ const Spacer = ({ hide_md }: { hide_md?: boolean }) => {
 };
 
 function App(): ReactElement {
+  // Top level states
   const [locale, setLocale] = useState<string>(getUserLocale());
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
+  const [showLanguageSelector, setShowLanguageSelector] = useState(false);
+
+  // This is always a locale name like "EN", it removes any other country information
   let UppercaseLocale = (locale as string).toUpperCase().split("-")[0];
   const isSupported = SupportedLocale(UppercaseLocale);
 
@@ -36,19 +41,30 @@ function App(): ReactElement {
     localeContent[UppercaseLocale as keyof Locales]
   );
 
-  function changeLocale(to: string) {
+  function changeLocale(to: string): void {
     setLocale(to);
     setContent(localeContent[(to as string).toUpperCase() as keyof Locales]);
   }
 
   const refs = {
-    aboutMe: useRef<HTMLHeadingElement>(),
-    myWork: useRef<HTMLHeadingElement>(),
+    aboutMe: useRef<HTMLHeadingElement>(null),
+    myWork: useRef<HTMLHeadingElement>(null),
     showcaseRef: useRef<number>(0),
   };
 
   return (
     <>
+      <Navbar
+        changeLocale={changeLocale}
+        content={{
+          navbar: content.navbar,
+        }}
+        langSelector={[showLanguageSelector, setShowLanguageSelector]}
+        scrollToRefs={{
+          aboutme: refs.aboutMe,
+          mywork: refs.myWork,
+        }}
+      />
       <main className="sectionWrapper">
         <Hero
           refs={{
@@ -61,8 +77,6 @@ function App(): ReactElement {
             callToAction: content.calltoaction,
             navBar: content.navbar,
           }}
-          locale={locale}
-          changeLocale={changeLocale}
         />
         <Showcase currentShowcase={currentShowcase} />
         <Spacer hide_md={true} />

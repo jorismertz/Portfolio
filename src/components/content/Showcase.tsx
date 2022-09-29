@@ -1,5 +1,6 @@
 import { portfolioContent } from "./portfolioContent";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface Props {
   currentShowcase: number;
@@ -21,8 +22,24 @@ const Showcase = ({ currentShowcase }: Props) => {
       setRight(currentShowcase + 1);
     }
   }, [currentShowcase, contentAmount]);
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
+  const [show, doShow] = useState<boolean>(false);
+  useLayoutEffect(() => {
+    if (show) return;
+    if (inView) doShow(true);
+  }, [inView, show]);
   return (
-    <section className="bottom-showcase">
+    <section
+      ref={ref}
+      className="bottom-showcase"
+      style={{
+        opacity: show ? "1" : "0",
+        transform: show ? "translateY(0)" : "translateY(100px)",
+        transition: "all 2s cubic-bezier(0.17,0.84,0.44,1)",
+      }}
+    >
       <div className="item">
         <img src={portfolioContent[left].images[0]} alt="" />
       </div>

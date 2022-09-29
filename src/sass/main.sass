@@ -1,8 +1,31 @@
+@mixin linkHover($color)
+    cursor: pointer
+    position: relative
+    &::before
+        transform: scaleX(0)
+        transform-origin: bottom right
+    &:hover::before
+        transform: scaleX(1)
+        transform-origin: bottom left
+    &::before
+        content: " "
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        inset: 0 0 0 0
+        z-index: -1
+        background: $color
+        transition: transform .3s ease
+
 .container
-    width: calc(100vw - 200px)
-    position: absolute
-    top: 0
-    left: 100px
+    width: calc(100vw - 6rem)
+    position: relative
+    left: 3rem
+    margin-top: 2rem
+    height: 100%
 
 h1.title
     margin-bottom: 15px
@@ -40,27 +63,6 @@ h1.title
     position: relative
     left: 20%
 
-.navbar
-    list-style: none
-    font-weight: bold
-    transform: rotate(-90deg)
-    width: 417px
-    height: 20px
-    position: absolute
-    left: -135px
-    top: 450px
-    li
-        float: left
-        margin-left: 20px
-    span
-        color: black
-        text-decoration: none
-    a
-        color: black
-        text-decoration: none
-    &:hover
-        text-decoration: underline
-
 .showcase
     width: 400px
     height: 400px
@@ -82,36 +84,39 @@ h1.title
 .showcase_wrapper
     width: 400px
     position: absolute
-    top: calc(100vh - 200px)
+    bottom: 150px
     left: 50%
     transform: translateX(-50%)
 
-.navbar ul span
+.navbar-links
+    list-style: none
+    float: left
+    li
+        float: left
+        margin: 0 2rem
+        font-weight: bold
+        a
+            color: black
+            text-decoration: none
+
+header.header
+    width: 90vw
     position: relative
-    &::before
-        transform: scaleX(0)
-        transform-origin: bottom right
-    &:hover::before
-        transform: scaleX(1)
-        transform-origin: bottom left
-    &::before
-        content: " "
-        display: block
-        position: absolute
-        top: 0
-        right: 0
-        bottom: 0
-        left: 0
-        inset: 0 0 0 0
-        z-index: -1
-        background: #FF6D44
-        transition: transform .3s ease
+    left: 5vw
+    nav
+        display: grid
+        grid-template-columns: auto 1fr auto
+        margin-top: 1rem
+        height: 1rem
+        ul li
+            @include linkHover(#E56D31)
 
 .languageSelector
     position: relative
-    top: 15px
-    right: 10px
     transition: opacity .5s ease-in-out
+    float: right
+    top: -3px
+    margin-right: 1rem
     button
         float: right
         margin: 0 5px
@@ -119,6 +124,9 @@ h1.title
         border: none
         padding: 5px 10px
         cursor: pointer
+        font-weight: bold
+        font-size: var(--sizep)
+        @include linkHover(#B14BB0)
 
 .discover
     position: absolute
@@ -282,6 +290,55 @@ iframe
         img
             width: 100%
 
+.portfolio-viewer
+    background: rgba(0,0,0,0.6)
+    position: fixed
+    z-index: 10
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    .fa-xmark
+        position: absolute
+        right: 2rem
+        top: 2.75rem
+        font-size: 1.5rem
+        z-index: 11
+        cursor: pointer
+    .portfolio-content
+        position: inherit
+        background: white
+        width: min(95vw, 90rem)
+        height: max(95vh, 40rem)
+        padding: 3rem
+        padding-top: 6rem
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 20px
+        section
+            section
+                aspect-ratio: 1 / 1
+                max-width: 100%
+                max-height: 40vh
+                img
+                    max-height: 100%
+                    max-width: 100%
+
+            aside
+                margin-top: 20px
+                width: 100%
+                display: grid
+                grid-gap: 20px
+                grid-template-columns: repeat(4,1fr)
+                .portfolio-small
+                    aspect-ratio: 1 / 1
+                    cursor: pointer
+                    img
+                        width: 100%
+        aside
+            h1
+                margin-block-end: 1rem
+
 .work_item
     max-width: 100%
     float: left
@@ -295,6 +352,12 @@ iframe
 .markdown-style
     color: red
 
+@media (min-width: 1090px)
+    .portfolio-content
+        section
+            section
+                max-height: 60vh !important
+
 @media (max-width: 1090px)
     .hide-md
         display: none !important
@@ -304,9 +367,18 @@ iframe
         display: none !important
 
 @media (max-width: 860px)
-    .container
-        width: calc(100vw - 50px) !important
-        left: 25px
+    .hero
+        height: calc(100vh - 10rem) !important
+    .navbar-links
+        display: none !important
+    .portfolio-content
+        grid-template-columns: unset !important
+        grid-template-rows: auto 1fr
+        padding: 1.5rem !important
+        padding-top: 3rem !important
+    .container, header.header
+        width: calc(100vw - 4rem) !important
+        left: 2rem !important
     .hide-sm
         display: none !important
     .showcase_wrapper
@@ -316,6 +388,8 @@ iframe
     .show-md
         display: block !important
 @media (max-width: 560px)
+    .hero
+        height: calc(100vh - 7rem) !important
     .hide-xs
         display: none !important
     .portfolio

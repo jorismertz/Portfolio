@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, RefObject, Fragment } from "react";
 import { portfolioContent } from "./portfolioContent";
 
 interface Content {
@@ -8,11 +8,9 @@ interface Content {
 
 interface Props {
   content: Content;
-  locale: string;
-  changeLocale: any;
   refs: {
-    aboutme: any;
-    mywork: any;
+    aboutme: RefObject<HTMLHeadingElement>;
+    mywork: RefObject<HTMLHeadingElement>;
     showcase: any;
   };
   setShowcase: any;
@@ -21,12 +19,12 @@ interface Props {
 const TextSpacer = ({ length }: { length: number }) => {
   let elements = [];
   for (let i = 0; i < length; i++) {
-    elements.push(<>&nbsp;</>);
+    elements.push(<Fragment key={i}>&nbsp;</Fragment>);
   }
   return <>{elements}</>;
 };
 
-const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
+const Hero = ({ content, refs, setShowcase }: Props) => {
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const showcaseInterval = 2e3;
 
@@ -54,61 +52,16 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
     };
   }, []);
 
-  const [showLanguageSelector, setShowLanguageSelector] = useState(false);
   return (
     <section className="hero">
-      <ul className="navbar hide-sm">
-        <li>
-          <span id="services">
-            <a
-              href="https://instagram.com/jorisportfoliox/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {content.navBar[0].toUpperCase()}
-            </a>
-          </span>
-        </li>
-        <li>
-          <span id="mwbutton">{content.navBar[1].toUpperCase()}</span>
-        </li>
-        <li>
-          <span id="about">{content.navBar[2].toUpperCase()}</span>
-        </li>
-      </ul>
       <div className="container">
-        <h1 className="title">Joris Mertz</h1>
-        <i
-          className="fa-solid fa-globe"
-          style={{
-            float: "right",
-            position: "relative",
-            top: "20px",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            setShowLanguageSelector(!showLanguageSelector);
-          }}
-        ></i>
-        <div
-          className="languageSelector"
-          style={{
-            opacity: showLanguageSelector ? "1" : "0",
-          }}
-        >
-          <button onClick={() => changeLocale("NL")}>NL</button>
-          <button onClick={() => changeLocale("EN")}>EN</button>
-        </div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <h4>VOL 3.</h4>
         <div
           className="show-md"
           style={{
             display: "none",
           }}
         >
-          <div className="gap"></div>
+          {/* <div className="gap"></div> */}
           <h2 className="mobile-qoute show-md" style={{ display: "none" }}>
             Development and creative design
           </h2>
@@ -118,7 +71,8 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
               marginTop: "20px",
             }}
             onClick={() => {
-              refs.aboutme.current.scrollIntoView({ behavior: "smooth" });
+              if (refs.aboutme.current !== null)
+                refs.aboutme.current.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Read more
@@ -134,7 +88,8 @@ const Hero = ({ content, locale, changeLocale, refs, setShowcase }: Props) => {
           </h1>
           <p
             onClick={() => {
-              refs.mywork.current.scrollIntoView({ behavior: "smooth" });
+              if (refs.mywork.current !== null)
+                refs.mywork.current.scrollIntoView({ behavior: "smooth" });
             }}
             className="discover hide-sm canvas"
           >
