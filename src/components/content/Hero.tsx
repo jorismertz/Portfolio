@@ -1,4 +1,4 @@
-import { useEffect, useState, RefObject } from "react";
+import { useEffect, useState, RefObject, Fragment } from "react";
 import { portfolioContent } from "./portfolioContent";
 
 interface Content {
@@ -19,7 +19,7 @@ interface Props {
 const TextSpacer = ({ length }: { length: number }) => {
   let elements = [];
   for (let i = 0; i < length; i++) {
-    elements.push(<>&nbsp;</>);
+    elements.push(<Fragment key={i}>&nbsp;</Fragment>);
   }
   return <>{elements}</>;
 };

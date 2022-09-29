@@ -5,10 +5,9 @@ import { useInView } from "react-intersection-observer";
 
 interface Props {
   content: portfolioItem;
-  key: number;
 }
 
-const PortfolioItem = ({ content, key }: Props) => {
+const PortfolioItem = ({ content }: Props) => {
   const [viewerState, setViewerState] = useState<boolean>(false);
   const toggleViewer = (): void => {
     setViewerState(!viewerState);
