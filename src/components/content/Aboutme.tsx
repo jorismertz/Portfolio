@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 const AboutPage = ({ content, scroll }: { content: AboutMe; scroll: any }) => {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const [show, doShow] = useState<boolean>(false);
   useLayoutEffect(() => {
