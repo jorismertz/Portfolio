@@ -1,8 +1,9 @@
 import "../sass/globals.sass";
 import "../sass/main.sass";
 
-import { ReactElement, useState, useRef } from "react";
+import { ReactElement, useState, useRef, useEffect, MouseEvent } from "react";
 import getUserLocale from "get-user-locale";
+import { Gradient } from "whatamesh";
 
 import { localeContent, Locales, SupportedLocale } from "../content/content";
 
@@ -11,6 +12,8 @@ import Hero from "../components/content/Hero";
 import Showcase from "../components/content/Showcase";
 import AboutMe from "../components/content/Aboutme";
 import MyWork from "../components/content/MyWork";
+
+import Cursor from "../components/Cursor";
 
 const Spacer = ({ hide_md }: { hide_md?: boolean }) => {
   return (
@@ -30,6 +33,8 @@ function App(): ReactElement {
   const [locale, setLocale] = useState<string>(getUserLocale());
   const [currentShowcase, setCurrentShowcase] = useState<number>(0);
   const [showLanguageSelector, setShowLanguageSelector] = useState(false);
+
+  // const gradient = new Gradient();
 
   // This is always a locale name like "EN", it removes any other country information
   let UppercaseLocale = (locale as string).toUpperCase().split("-")[0];
@@ -52,6 +57,11 @@ function App(): ReactElement {
     showcaseRef: useRef<number>(0),
   };
 
+  useEffect(() => {
+    const gradient = new Gradient();
+    gradient.initGradient("#gradient-canvas");
+  }, []);
+
   return (
     <>
       <Navbar
@@ -65,6 +75,7 @@ function App(): ReactElement {
           mywork: refs.myWork,
         }}
       />
+      <Cursor />
       <main className="sectionWrapper">
         <Hero
           refs={{
@@ -92,7 +103,8 @@ function App(): ReactElement {
         />
       </main>
       <div className="backgroundwrapper">
-        <img src="/bg.webp" alt="Background" className="background" />
+        {/* <img src="/bg.webp" alt="Background" className="background" /> */}
+        <canvas id="gradient-canvas" data-transition-in></canvas>
         <div className="overlay"></div>
       </div>
     </>
