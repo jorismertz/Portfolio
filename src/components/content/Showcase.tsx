@@ -23,7 +23,7 @@ const Showcase = ({ currentShowcase }: Props) => {
     }
   }, [currentShowcase, contentAmount]);
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.2,
   });
   const [show, doShow] = useState<boolean>(false);
   useLayoutEffect(() => {

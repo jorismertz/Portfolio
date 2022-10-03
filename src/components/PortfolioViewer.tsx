@@ -7,14 +7,15 @@ interface Props {
 }
 
 const PortfolioViewer = ({ content, toggle }: Props) => {
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key === "Escape") toggle();
-  };
+  const [currentSelected, setCurrentSelected] = useState<number>(0);
   const containerRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (containerRef.current) containerRef.current.focus();
   }, []);
-  const [currentSelected, setCurrentSelected] = useState<number>(0);
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Escape") toggle();
+  };
+
   return (
     <main
       ref={containerRef}
@@ -35,6 +36,7 @@ const PortfolioViewer = ({ content, toggle }: Props) => {
                   setCurrentSelected(index);
                 }}
                 className="portfolio-small"
+                key={index}
               >
                 <img src={data} alt="" />
               </div>
