@@ -1,0 +1,33 @@
+.cursor
+    width: calc(var(--size) * 4)
+    aspect-ratio: 1 / 1
+    border: 3px solid var(--color)
+    border-radius: 50%
+    filter: invert(1)
+    mix-blend-mode: difference
+    position: fixed
+    top: calc(var(--size) / -2)
+    left: calc(var(--size) / -2)
+    pointer-events: none
+    z-index: 50
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: all 10ms ease-out
+    .dot
+        width: calc(var(--size))
+        aspect-ratio: 1 / 1
+        background: var(--color)
+        border-radius: 50%
+        position: relative
+//    &::after
+//        content: " "
+//        border: 5px solid var(--color)
+//        width: calc(var(--size) * 3)
+//        left: calc(((var(--size) * 3) / -2) + var(--size) / 6)
+//        top: calc(((var(--size) * 3) / -2) + var(--size) / 6)
+//        aspect-ratio: 1 / 1
+//        position: fixed
+//        border-radius: 50%
+//    top: calc(var(--y) * 1px - (var(--size) / 2))
+//    left: calc(var(--x) * 1px - (var(--size) / 2))
