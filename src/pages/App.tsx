@@ -13,7 +13,7 @@ import Showcase from "../components/content/Showcase";
 import AboutMe from "../components/content/Aboutme";
 import MyWork from "../components/content/MyWork";
 
-import Cursor from "../components/Cursor";
+// import Cursor from "../components/Cursor";
 
 const Spacer = ({ hide_md }: { hide_md?: boolean }) => {
   return (
