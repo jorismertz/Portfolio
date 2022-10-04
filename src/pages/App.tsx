@@ -1,7 +1,7 @@
 import "../sass/globals.sass";
 import "../sass/main.sass";
 
-import { ReactElement, useState, useRef, useEffect, MouseEvent } from "react";
+import { ReactElement, useState, useRef, useEffect } from "react";
 import getUserLocale from "get-user-locale";
 import { Gradient } from "whatamesh";
 
@@ -75,7 +75,7 @@ function App(): ReactElement {
           mywork: refs.myWork,
         }}
       />
-      <Cursor />
+      {/* <Cursor /> */}
       <main className="sectionWrapper">
         <Hero
           refs={{

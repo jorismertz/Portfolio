@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useState, MouseEvent, useEffect } from "react";
+import { ReactElement, useRef, useState, useEffect } from "react";
 
 interface Options {
   color?: string;
@@ -12,17 +12,24 @@ interface Props {
 
 const Cursor = ({ options }: Props): ReactElement => {
   const cursor = useRef<HTMLDivElement | null>(null);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   const moveEvent = (e: MouseEventInit) => {
-    const { movementX: x, movementY: y } = e;
-    console.log(e);
-    if (cursor.current) {
-      cursor.current.style.left = x + "px";
+    const { screenX: x, screenY: y } = e;
+    //console.log(e);
+    if (cursor.current && x && y) {
+      setCursorPosition({ x: x - 5, y: y - 145 });
+      cursor.current.style.transform = `translate(${x - 5}px, ${y - 145}px)`;
     }
+  };
+
+  const mouseEnter = (e: MouseEventInit) => {
+    console.log("entered");
   };
 
   useEffect(() => {
     document.addEventListener("mousemove", moveEvent);
+    document.addEventListener("mouseenter", mouseEnter);
 
     return () => {
       document.removeEventListener("mousemove", moveEvent);
@@ -34,11 +41,15 @@ const Cursor = ({ options }: Props): ReactElement => {
       ref={cursor}
       className="cursor"
       style={{
-        ["--color" as any]: options?.color ? options.color : "#000",
-        ["--size" as any]: options?.size ? options.size + "rem" : "1rem",
+        ["--x" as any]: cursorPosition.x,
+        ["--y" as any]: cursorPosition.y,
+        ["--color" as any]: options?.color ? options.color : "gray",
+        ["--size" as any]: options?.size ? options.size + "rem" : ".5rem",
         ["--growFactor" as any]: options?.growFactor ? options.growFactor : 2,
       }}
-    ></div>
+    >
+      <div className="dot"></div>
+    </div>
   );
 };
 
