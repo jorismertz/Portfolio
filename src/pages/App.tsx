@@ -105,7 +105,8 @@ function App(): ReactElement {
       <div className="backgroundwrapper">
         {/* <img src="/bg.webp" alt="Background" className="background" /> */}
         <canvas id="gradient-canvas" data-transition-in></canvas>
-        <div className="overlay"></div>
+        <div className="grain-overlay"></div>
+        <div className="color-overlay"></div>
       </div>
     </>
   );
