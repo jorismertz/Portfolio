@@ -55,8 +55,8 @@ h1.title
     opacity: .25
 
 .color-overlay
-    background: #0400ff
-    opacity: .15
+    background: linear-gradient(135deg, #6e40aa, #e3419e)
+    opacity: .3
 
 .line
     width: 100%
@@ -115,7 +115,7 @@ header.header
         margin-top: 1rem
         height: 1rem
         ul li
-            @include linkHover(#E56D31)
+            @include linkHover(#2c6df7)
 
 .languageSelector
     position: relative
@@ -142,6 +142,7 @@ header.header
     color: black
     width: 110px
     font-weight: bold
+    cursor: pointer
     &::before
         transform: scaleX(0)
         transform-origin: bottom right
