@@ -31,7 +31,7 @@ const AboutPage = ({ content, scroll }: { content: AboutMe; scroll: any }) => {
           <img src="./foto.jpg" alt="" />
         </div>
         <div id="abt_text" className="content_block">
-          <h3>{content.heading}</h3>
+          {/* <h3>{content.heading}</h3> */}
           <p
             style={{
               whiteSpace: "pre-wrap",
