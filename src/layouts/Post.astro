@@ -1,0 +1,19 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout frontmatter={frontmatter}>
+  <main class="px-12 py-6">
+    <article>
+      <slot />
+    </article>
+  </main>
+</Layout>

@@ -29,7 +29,7 @@ const Word = ({ content, highlighted, size }: WordProps) => {
         "font-size": `min(${size}vw, ${size + 10}vh)`,
       }}
       class={`${
-        highlighted ? "text-red-600" : "text-red-600/40"
+        highlighted ? "text-highlightMed" : "text-highlightMed/40"
       } font-GreatSailor`}
     >
       {content}
@@ -56,7 +56,6 @@ export default function WordSoup(
   useScreenSize();
 
   createEffect(() => {
-    console.log(currentMousePosition());
     setXShift(
       ((currentMousePosition().x / currentScreenSize().x) * 100 - 50) / 8
     );

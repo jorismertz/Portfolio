@@ -5,12 +5,12 @@ import { MousePosition } from "../components/wordSoup/MousePosition";
 ---
 
 <MousePosition client:load>
-  <Layout title="Home">
+  <Layout frontmatter={{ title: "Home" }}>
     <div class="fixed top-[-10rem]">
       <WordSoup size={14} rows={10} client:load />
     </div>
     <section class="relative w-full h-full grid place-items-center p-6">
-      <main class="bg-red-800/80 px-12 py-6 w-full h-full rounded-lg">
+      <main class="bg-overlay/80 px-12 py-6 w-full h-full rounded-lg">
         <h1>Hi there! I'm Joris</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
@@ -22,6 +22,7 @@ import { MousePosition } from "../components/wordSoup/MousePosition";
           porta. Donec eleifend viverra egestas. Proin maximus tincidunt lectus,
           vel tincidunt mi elementum vel.
         </p>
+        <a href="/posts/test">Post</a>
       </main>
     </section>
   </Layout>
