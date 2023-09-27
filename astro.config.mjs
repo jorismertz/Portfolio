@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config';
-
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
+import solidJs from "@astrojs/solid-js";
+
 export default defineConfig({
-  integrations: [tailwind()]
+  integrations: [tailwind({ applyBaseStyles: false }), solidJs()],
 });
