@@ -67,7 +67,7 @@ const Navbar = ({
           <li>
             <span id="services">
               <a
-                href="https://instagram.com/jorisportfoliox/"
+                href="https://github.com/jorismertz"
                 target="_blank"
                 rel="noreferrer"
               >
